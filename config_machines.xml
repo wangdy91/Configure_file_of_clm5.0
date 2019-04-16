@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config_machines version="2.0">
+  <machine MACH="ubuntu">
+    <DESC>Machine with ubuntu os and gnu compiler.</DESC>
+    <NODENAME_REGEX>regex.expression.matching.your.machine</NODENAME_REGEX>
+    <OS>LINUX</OS>
+    <PROXY>http://sysu.edu.cn</PROXY>
+    <COMPILERS>gnu</COMPILERS>
+    <MPILIBS>mpich</MPILIBS>
+    <PROJECT>none</PROJECT>
+    <SAVE_TIMING_DIR>$ENV{HOME}/cesm/</SAVE_TIMING_DIR>
+    <CIME_OUTPUT_ROOT>$ENV{HOME}/cesm/scratch</CIME_OUTPUT_ROOT>
+    <DIN_LOC_ROOT>/mnt/CLMinputdata</DIN_LOC_ROOT>
+    <DIN_LOC_ROOT_CLMFORC>/mnt/CLMinputdata/lmwg</DIN_LOC_ROOT_CLMFORC>
+    <DOUT_S_ROOT>$ENV{HOME}/cesm/archive/$CASE</DOUT_S_ROOT>
+    <BASELINE_ROOT>$ENV{HOME}/cesm/cesm_baselines</BASELINE_ROOT>
+    <CCSM_CPRNC>$ENV{HOME}/cesm/tools/cime/tools/cprnc/cprnc</CCSM_CPRNC>
+    <GMAKE>make</GMAKE>
+    <GMAKE_J>8</GMAKE_J>
+    <BATCH_SYSTEM>none</BATCH_SYSTEM>
+    <SUPPORTED_BY>me@my.address</SUPPORTED_BY>
+    <MAX_TASKS_PER_NODE>8</MAX_TASKS_PER_NODE>
+    <MAX_MPITASKS_PER_NODE>8</MAX_MPITASKS_PER_NODE>
+    <PROJECT_REQUIRED>FALSE</PROJECT_REQUIRED>
+    <mpirun mpilib="mpich">
+      <executable>mpirun</executable>
+      <arguments>
+        <arg name="ntasks"> -np {{ total_tasks }} </arg>
+      </arguments>
+    </mpirun>
+    <module_system type="none"/>
+    <environment_variables>
+      <env name="OMP_STACKSIZE">256M</env>
+      <!--env name="NETCDF_PATH">/opt/pgi/netcdf4</env-->
+      <env name="NETCDF_C_LIBRARY">/opt/netcdf4/lib</env>
+      <env name="NETCDF_Fortran_LIBRARY">/opt/netcdff4/lib</env>
+      <env name="NETCDF_Fortran_INCLUDE_DIR">/opt/netcdff4/include</env>
+      <env name="NETCDF_C_INCLUDE_DIR">/opt/netcdf4/include</env>
+    </environment_variables>
+    <resource_limits>
+      <resource name="RLIMIT_STACK">-1</resource>
+    </resource_limits>
+  </machine>
+</config_machines>

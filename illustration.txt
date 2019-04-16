@@ -1,0 +1,1 @@
+在用户的家目录下面创建名字为.cime（带前面的点）的文件夹，把config_compilers.xml和config_machines_xml文件放进去！
