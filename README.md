@@ -3,3 +3,5 @@
 + 在用户的家目录下创建名字为.cime的文件夹
 `mkdir .cime`
 + 将config_machine 和 config_compiler这两个文件放进去
+
+modify in dev
